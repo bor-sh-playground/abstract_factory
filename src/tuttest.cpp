@@ -185,7 +185,7 @@ int main(int argc, char* argv[])
 //    cmd.run(argc, argv);
 
     base1* b;
-    b=new derived1;
+    b = new derived1;
     delete b;
 
     return 0;

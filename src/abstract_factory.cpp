@@ -111,12 +111,19 @@ namespace
 
 int main(int argc, char* argv[])
 {
-    CommandInterfacePtr cmd = CommandInterface::fromName(argv[1], NULL);
-    DriverInterfacePtr driver = DriverInterface::fromName("pcan", "tante emma");
+    try {
+     CommandInterfacePtr cmd = CommandInterface::fromName(argv[1], NULL);
+     DriverInterfacePtr driver = DriverInterface::fromName("pcan", "tante emma");
 
-    cmd.get()->execute();
+     cmd.get()->execute();
 
-    driver.get()->openDriver();
+     driver.get()->openDriver();
+    }
+    catch (...)
+    {
+        cout << "Oh oh error" << endl;
+        return 0;
+    }
 
     return 0;
 }
